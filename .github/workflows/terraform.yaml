@@ -1,0 +1,20 @@
+name: "Vprofile IAC"
+
+on: 
+  push:
+    branches:
+      - main
+      - stage
+    paths:
+      - terraform/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - terraform/**
+
+env: 
+  AWS_SECRET_KEY_ID : {{ secrets.AWS_SECRET_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY : {{ secrets.AWS_SECRET_ACCESS_KEY }}
+  BUCKET_TF_STATE: {{ secrets.BUCKET_TF_STATE }}
+
